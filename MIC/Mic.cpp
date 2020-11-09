@@ -1,10 +1,9 @@
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/OpenGL.hpp>
-#include <iostream>
-#include "goerzelfilter.h"
+#include<SFML/Audio.hpp>
+#include<SFML/System.hpp>
+#include<SFML/Window.hpp>
+#include<SFML/OpenGL.hpp>
+#include<iostream>
 #include <string.h>
 #include <sstream>
 #include <string>
@@ -45,25 +44,24 @@ int main() {
     std::stringstream oss;
     sf::RenderWindow window(sf::VideoMode(800, 600), "recording Sounds", sf::Style::Default);
     window.setFramerateLimit(60);
-    
+
     sf::Font font;
 
-    if (!font.loadFromFile("arial.ttf")) {
+    if (!font.loadFromFile("Calibri.ttf")) {
 
-    }
-
+     }
 
     sf::RectangleShape rectangle;
     rectangle.setFillColor(sf::Color::Green);
     rectangle.setSize(sf::Vector2f(100.f, 50.f));
     rectangle.setPosition(window.getSize().x / 2.f, window.getSize().y / 2.f);
-    
+
     sf::Text SampleCountText;
     SampleCountText.setCharacterSize(24);
     SampleCountText.setFont(font);
     SampleCountText.setFillColor(sf::Color::Blue);
     SampleCountText.setString("123");
-    SampleCountText.setPosition(300.f,550.f);
+    SampleCountText.setPosition(300.f, 550.f);
 
     sf::Text SampleCountTextS;
     SampleCountTextS.setCharacterSize(24);
@@ -72,7 +70,7 @@ int main() {
     SampleCountTextS.setString("Sample Count:");
     SampleCountTextS.setPosition(10.f, 550.f);
 
- 
+
 
 
 
@@ -112,7 +110,7 @@ int main() {
     L2.setPosition(10.f, 100.f);
 
     sf::Text L22;
-    L22.setCharacterSize(24);
+    L22.setCharacterSize(12);
     L22.setFont(font);
     L22.setFillColor(sf::Color::Blue);
     L22.setString("941 HZ:");
@@ -210,7 +208,7 @@ int main() {
         std::cout << "you need to install a mic " << std::endl;
     }
 
-   // sf::SoundBufferRecorder recorder;
+    // sf::SoundBufferRecorder recorder;
     SpeechRecorder recorder;
     sf::SoundBuffer buffer;
     sf::Sound sound;
@@ -237,10 +235,11 @@ int main() {
         window.draw(H22);
         window.draw(H32);
         window.draw(H42);
-        
-       
-       // window.draw(rectangle);
 
+
+        // window.draw(rectangle);
+        L12.setString(recorder.RecievedNumbersString);
+        L22.setString(recorder.powerArray());
         window.display();
 
         sf::Event Event;
@@ -254,34 +253,38 @@ int main() {
                 window.close();
                 break;
             case sf::Event::KeyPressed:
-                if (Event.key.code == sf::Keyboard::A)
+                if (Event.key.code == sf::Keyboard::A) {
+                    L12.setString("");
+                    L22.setString("");
+                    recorder.resetter();
                     recorder.start();
+                }
 
-                
+
                 else if (Event.key.code == sf::Keyboard::B)
                 {
                     recorder.stop();
                     buffer = recorder.getBuffer();
 
 
-                   // std::ostringstream oss;
-                    //oss << buffer.getSampleCount();
-                    //SampleCountText.setString(oss.str());
-                    //UINT oss2 = buffer.getSampleRate();
-                    //std::string oss3 = std::to_string(oss2);
-                    //SampleFreq.setString(oss3);
-                    //float d = (int)buffer.getSamples();
-                    //float k = goertzel2(buffer.getSampleCount()-2, 5000, buffer.getSampleRate(), &d);
-                    //std::string power2 = std::to_string(k);
-                    //power.setString(power2);
-                    //sound.setBuffer(buffer);
+                    // std::ostringstream oss;
+                     //oss << buffer.getSampleCount();
+                     //SampleCountText.setString(oss.str());
+                     //UINT oss2 = buffer.getSampleRate();
+                     //std::string oss3 = std::to_string(oss2);
+                     //SampleFreq.setString(oss3);
+                     //float d = (int)buffer.getSamples();
+                     //float k = goertzel2(buffer.getSampleCount()-2, 5000, buffer.getSampleRate(), &d);
+                     //std::string power2 = std::to_string(k);
+                     //power.setString(power2);
+                     //sound.setBuffer(buffer);
 
                     sound.play();
 
                 }
-                    
 
-                
+
+
             }
         }
     }
