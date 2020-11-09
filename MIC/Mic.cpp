@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
-#include<SFML/Audio.hpp>
-#include<SFML/System.hpp>
-#include<SFML/Window.hpp>
-#include<SFML/OpenGL.hpp>
-#include<iostream>
+#include <SFML/Audio.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/OpenGL.hpp>
+#include <iostream>
 #include "goerzelfilter.h"
 #include <string.h>
 #include <sstream>
@@ -48,9 +48,10 @@ int main() {
     
     sf::Font font;
 
-    if (!font.loadFromFile("aerial.ttf")) {
+    if (!font.loadFromFile("arial.ttf")) {
 
     }
+
 
     sf::RectangleShape rectangle;
     rectangle.setFillColor(sf::Color::Green);

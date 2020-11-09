@@ -1,1 +1,4 @@
 C:\Users\Pepe\source\repos\MIC\MIC\Debug\MIC.vcxproj.CopyComplete
+C:\Users\peter\OneDrive - Syddansk Universitet\3. semester\Projekt\GitHub\MIC\Debug\MIC.pdb
+C:\Users\peter\OneDrive - Syddansk Universitet\3. semester\Projekt\GitHub\MIC\MIC\Debug\MIC.exe
+C:\Users\peter\OneDrive - Syddansk Universitet\3. semester\Projekt\GitHub\MIC\MIC\Debug\MIC.pdb
